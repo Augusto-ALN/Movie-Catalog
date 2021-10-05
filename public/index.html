@@ -1,0 +1,13 @@
+    <body>
+    </body>
+    <script>
+        try {
+            async function getContent(){
+                const response = await fetch('http://localhost:4567')
+                console.log(await response.json())
+            } 
+            getContent()
+        } catch (error) {
+            console.error(error)
+        }
+    </script>
