@@ -16,7 +16,8 @@ module.exports = {
         },
     async getDetails(req, res){
             try {
-                const selectedMovieDetails = await findMovieDetails();
+                const id = req.params.id
+                const selectedMovieDetails = await findMovieDetails(id);
                 return res.json(selectedMovieDetails)
             } catch (error) {
                 if (error.response) {

@@ -1,7 +1,7 @@
 const axios = require('axios').default
 
-module.exports.findMovieDetails = async () => {
-    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/343611?api_key=${process.env.API_KEY}`)
+module.exports.findMovieDetails = async (id) => {
+    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`)
     const movieDetail = {
         title: data.title,
         poster_path: data.poster_path,
