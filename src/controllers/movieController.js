@@ -13,16 +13,17 @@ module.exports = {
                     return res.status(500).json('internal server error')
                 }
             }
-        }
-    }
-module.exports = {
+        },
     async getDetails(req, res){
             try {
-                console.log('called find movie details')
                 const selectedMovieDetails = await findMovieDetails();
                 return res.json(selectedMovieDetails)
             } catch (error) {
-                return error
+                if (error.response) {
+                    return res.status(error.response.status).json(error.response.data.status_message)
+                } else {
+                    return res.status(500).json('internal server error')
+                }
             }
         }
     }
